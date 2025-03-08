@@ -1,0 +1,94 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="secondary">Cadastro de livro</mat-toolbar>
+    <form [formGroup]="form">
+
+      <mat-form-field class="largura49">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="titulo" formControlName="titulo"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura49">
+        <mat-label>Subtitulo</mat-label>
+        <input matInput placeholder="subtitulo" formControlName="subTitulo"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>ISBN</mat-label>
+        <input matInput placeholder="ISBN" formControlName="isbn"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="categoria">
+          <mat-option [value]="null">Selecione...</mat-option>
+          <mat-option *ngFor="let categoria of categorias" [value]="categoria.valor">{{categoria.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Autor</mat-label>
+        <input matInput placeholder="autor" formControlName="autor"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Edição</mat-label>
+        <input matInput placeholder="edição" formControlName="edicao"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Data de Publicação</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataPublicacao">
+        <mat-hint>dd/mm/aaaa</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"/>
+        <mat-datepicker #picker/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Editora</mat-label>
+        <mat-select formControlName="editoraId">
+          <mat-option [value]="0">Selecione...</mat-option>
+          <mat-option *ngFor="let editora of editoras" [value]="editora.id">{{editora.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Quantidade de Páginas</mat-label>
+        <input matInput placeholder="páginas" formControlName="quantidadePaginas"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Estoque</mat-label>
+        <input matInput placeholder="quantidade" formControlName="quantidade"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Preço</mat-label>
+        <input matInput placeholder="preço(R$)" formControlName="preco"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura33">
+        <mat-label>Preço Desconto</mat-label>
+        <input matInput placeholder="preço com desconto" formControlName="precoDesconto" readonly="true"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura67">
+        <mat-label>Imagem capa</mat-label>
+        <ngx-mat-file-input placeholder="Escolha uma imagem para a capa..." formControlName="capa" [multiple]="false" accept="image/jpg,image/png" (ngModelChange)="onSelectFile($event)"/>
+      </mat-form-field>
+
+      <mat-form-field class="largura100">
+        <mat-label>Sinopse</mat-label>
+        <textarea matInput placeholder="resumo" formControlName="sinopse"></textarea>
+      </mat-form-field>
+
+    </form>
+
+    <br />
+
+    <div class="botoes">
+      <a mat-raised-button color="primary" (click)="onSubmit()">Salvar</a>
+      <a mat-raised-button routerLink="" color="primary">Voltar</a>
+    </div>
+  </mat-card-content>
+</mat-card>

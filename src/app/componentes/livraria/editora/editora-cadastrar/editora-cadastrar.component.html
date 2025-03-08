@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="secondary">Cadastro de editora</mat-toolbar>
+    <form [formGroup]="form">
+
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input id="nome" matInput placeholder="nome" formControlName="nome">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>CNPJ</mat-label>
+        <input id="cnpj" matInput placeholder="cnpj" formControlName="cnpj">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Desconto(%)</mat-label>
+        <input id="desconto" matInput placeholder="desconto" formControlName="desconto">
+      </mat-form-field>
+    </form>
+
+    <br />
+
+    <div class="botoes">
+      <a id="salvar" mat-raised-button color="primary" (click)="onSubmit()">Salvar</a>
+      <a id="voltar" mat-raised-button routerLink="" color="primary">Voltar</a>
+    </div>
+  </mat-card-content>
+</mat-card>

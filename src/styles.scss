@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/theming';
+@include mat-core();
+
+$custom-app-primary: mat-palette($mat-indigo);
+$custom-app-secundary: mat-palette($mat-indigo, A200, A200, 300);
+$custom-app-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secundary, $custom-app-warn);
+
+@include angular-material-theme($custom-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-card {
+  margin-top:  10pt;
+  margin-left: 10pt;
+  margin-right: 10pt;
+  margin-bottom: 10pt;
+}
+
+form {
+  width: 100%;
+  margin-top: 15px;
+}
+
+mat-form-field {
+  margin-right: 5px;
+}
+
+.botoes .mat-mdc-button-base {
+  margin: 10px 10px 10px 0;
+}

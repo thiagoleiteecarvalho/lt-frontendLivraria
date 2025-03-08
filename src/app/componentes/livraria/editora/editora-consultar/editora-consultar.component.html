@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="secondary">Listagem de editoras</mat-toolbar>
+    <table id="editoras" mat-table [dataSource]="editoras" class="mat-elevation-z8">
+
+      <ng-container id="editoraNomeContainer" matColumnDef="nome">
+        <th id="editoraNomeHeader" mat-header-cell *matHeaderCellDef> Nome </th>
+        <td id="editoraNomeValue" mat-cell *matCellDef="let editora"> {{editora.nome}} </td>
+      </ng-container>
+
+      <ng-container id="editoraCnpjConteiner" matColumnDef="cnpj">
+        <th id="editoraCnpjHeader" mat-header-cell *matHeaderCellDef> CNPJ </th>
+        <td id="editoraCnpjValue" mat-cell *matCellDef="let editora"> {{editora.cnpj}} </td>
+      </ng-container>
+
+      <ng-container id="editoraDescontoContainer" matColumnDef="desconto">
+        <th id="editoraDescontoHeader" mat-header-cell *matHeaderCellDef> Desconto(%) </th>
+        <td id="editoraDescontoValue" mat-cell *matCellDef="let editora"> {{editora.desconto}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" color="secondary"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <div *ngIf="(editoras | async)?.length == 0">Não existem editoras cadastradas.</div>
+
+    <br />
+
+    <a mat-raised-button routerLink="" color="primary">Voltar</a>
+  </mat-card-content>
+</mat-card>

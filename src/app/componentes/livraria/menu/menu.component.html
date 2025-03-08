@@ -1,0 +1,18 @@
+<div>
+  <mat-toolbar color="primary">
+    <span>Livraria</span>
+  </mat-toolbar>
+
+  <button id="editoraButton" mat-button [matMenuTriggerFor]="editora" color="primary">Editora</button>
+  <mat-menu #editora="matMenu" color="primary">
+    <button id="editoraConsultaButton" mat-menu-item routerLink="/editora-consultar" color="primary">Consultar</button>
+    <mat-divider/>
+    <button id="editoraCadastroButton" mat-menu-item routerLink="/editora-cadastrar" color="primary">Cadastrar</button>
+  </mat-menu>
+  <button id="livroButton" mat-button [matMenuTriggerFor]="livro" color="primary">Livro</button>
+  <mat-menu #livro="matMenu" color="primary">
+    <button id="livroConsultaButton" mat-menu-item routerLink="/livro-consultar" color="primary">Consultar</button>
+    <mat-divider/>
+    <button id="livroCadastroButton" mat-menu-item routerLink="/livro-cadastrar" color="primary">Cadastrar</button>
+  </mat-menu>
+</div>
